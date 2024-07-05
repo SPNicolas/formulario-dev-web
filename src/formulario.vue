@@ -13,6 +13,7 @@
   <label>Sexo: {{ sexo }}</label>
   <input type="password" v-model="senha" required />
   <label for="text">Confirme a senha</label>
+  <label for="text">Confirme a senha</label>
   <input type="password" v-model="senha" required/>
   <input type="text" v-model="nome" minlength="3" />
 
