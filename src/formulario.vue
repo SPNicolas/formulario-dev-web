@@ -1,35 +1,23 @@
 <script setup>
   import { ref } from 'vue';
-  const senha = ref('');
   const nome = ref('');
-  const idade = ref('');
-  const aceitaTermos = ref(false);
+  const sexo = ref('')
 </script>
 
 <template>
-  <div class="formulario">
-    <div class="pessoal">
-      <input type="text" v-model="nome" placeholder="Digite seu nome" />
-      <label for=""></label>
-    </div>
+  <input type="text" v-model="nome"  placeholder="Digite seu nome" style="width: 200px"/>
+  <label for="text">O texto o nome colocado é: {{ nome }}</label>
+  <label for="sexo">Sexo</label>
+  <input type="radio" v-model="sexo" value="masculino" /> Masculino
+  <input type="radio" v-model="sexo" value="feminino" /> Feminino
+  <label>Sexo: {{ sexo }}</label>
+  <input type="password" v-model="senha" required />
+  <label for="text">Confirme a senha</label>
+  <input type="password" v-model="senha" required/>
 
-
-  </div>
-  
 </template>
 
 
 <style scoped>
-    .formulario {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border: 1px solid white;
-    }
-    .formulario .pessoal {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
 
 </style>
