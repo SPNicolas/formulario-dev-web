@@ -1,23 +1,17 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <script setup>
-  import { ref } from 'vue';
-  const nome = ref('');
-  const sexo = ref('')
+  import { ref, reactive } from 'vue';
+  const titulo = ref('Formulário de Cadastro de Produtos');
 </script>
 
 <template>
-  <input type="text" v-model="nome"  placeholder="Digite seu nome" style="width: 200px"/>
-  <label for="text">O texto o nome colocado é: {{ nome }}</label>
-  <label for="sexo">Sexo</label>
-  <input type="radio" v-model="sexo" value="masculino" /> Masculino
-  <input type="radio" v-model="sexo" value="feminino" /> Feminino
-  <label>Sexo: {{ sexo }}</label>
-  <input type="password" v-model="senha" required />
-  <label for="text">Confirme a senha</label>
-  <label for="text">Confirme a senha</label>
-  <input type="password" v-model="senha" required/>
-  <input type="text" v-model="nome" minlength="3" />
+  
+  <h1>{{ titulo }}</h1>
 
-
+  <div class="altera-titulo">
+    <h2>Informe um novo título:</h2>
+    <input type="text" v-model="titulo" />
+  </div>
 </template>
 
 
