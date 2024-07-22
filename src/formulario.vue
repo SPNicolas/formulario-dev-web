@@ -1,61 +1,25 @@
-<!-- eslint-disable vue/multi-word-component-names -->
 
 <script setup>
  import { ref, reactive } from 'vue';
- const titulo = ref('Formulário de Cadastro');
 const cadastro = reactive({
   nome: '',
   email: '',
   senha: '',
   confirmarSenha: '',
   medida: '',
-  categorias: [],
+  estado: [],
 });
-const categorias = [
-  {
-    id: 1,
-    nome: 'Eletrônicos',
-  },
-  {
-    id: 2,
-    nome: 'Vestuário',
-  },
-  {
-    id: 3,
-    nome: 'Brinquedos',
-  },
-  {
-    id: 4,
-    nome: 'Móveis',
-  },
-  {
-    id: 5,
-    nome: 'Alimentos',
-  },
-  {
-    id: 6,
-    nome: 'Bebidas',
-  },
-  {
-    id: 7,
-    nome: 'Informática',
-  },
-  {
-    id: 8,
-    nome: 'Papelaria',
-  },
-];
+
 const mostrarResultado = ref(false);
 
 
-function buscarNome(id) {
-  return categorias.find((categoria) => categoria.id === id).nome;
+function buscarNome(nome) {
+  return estados.find((estado) => estado.nome === nome).nome;
 }
 </script>
 
 <template>
 
-  <h1>{{ titulo }}</h1>
   <div class="container">
     
   <div class="formulario">
@@ -85,16 +49,9 @@ function buscarNome(id) {
       </div>
     </fieldset>
     <fieldset>
-      <legend>Categorias</legend>
-      <div class="items-checkbox">
-        <template v-for="categoria in categorias" :key="categoria.id">
-          <input
-            type="checkbox"
-            :value="categoria.id"
-            v-model="cadastro.categorias"
-          />
-           {{ categoria.nome }} 
-        </template>
+    <div>
+
+    
       </div>
     </fieldset>
     <button @click="mostrarResultado = !mostrarResultado">Mostrar</button>
@@ -105,12 +62,7 @@ function buscarNome(id) {
   <p>Nome: {{ cadastro.nome }}</p>
   <p>Email: {{ cadastro.email }}</p>
   <p>Senha: {{ cadastro.senha }}</p>
-  <p>Medida: {{ cadastro.medida }}</p>
-  <p>Categorias: {{ cadastro.categorias }}</p>
-  <h4>Categorias selecionadas:</h4>
-  <p v-for="categoria_id in cadastro.categorias" :key="categoria_id">
-    - {{ buscarNome(categoria_id) }}
-  </p>
+  <p>Medida: {{ cadastro.medida }}</p> 
 </div>
 
   
@@ -149,7 +101,7 @@ function buscarNome(id) {
 }
 
 .formulario {
-  background-color: #d29696;
+  background-color: #92a6ff;
 }
 
 .formulario .row {
