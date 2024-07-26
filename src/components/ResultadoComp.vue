@@ -31,5 +31,28 @@ const props = defineProps({
 
 </template>
 <style scoped>
+input {
+  width: 400px;
+  padding: 10px;
+  font-size: 24px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+}
+
+.resultado {
+  background-color: #3d3d3d;
+  border-radius: 20px;
+  height: 500px;
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-bottom: 20px;
+  margin-top: 30px;
+  text-align: left;
+
+}
+
+.resultado .row {
+    padding: 30px;
+}
 
 </style>

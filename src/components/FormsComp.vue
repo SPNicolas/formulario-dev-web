@@ -94,7 +94,7 @@
           <textarea name="" id="" cols="30" rows="10" v-model="dados.biografia" ></textarea>
         </div>
 
-        <input type="submit" value="Enviar">
+        <input id="botao" type="submit" value="Enviar">
 
     </form>
 
@@ -104,54 +104,6 @@
 </template>
 <style scoped>
 
-
-
-.container {
-  display: flex;
-  justify-content: flex-start;
-  gap: 2rem;
-  margin-top: 1rem;
-  padding: 0 2rem;
-}
-
-.formulario {
-  width: 100%;
-  min-height: 600px;
-  border-radius: 20px;
-  padding: 20px;
-  background-color: #3d3d3d;
-}
-
-.formulario .row {
-  width: 80%;  line-height: 40px;
-  margin: 1.3rem 0;
-  display: flex;
-  justify-content: space-between;
-}
-
-.formulario .estado {
-  display: flex;
-  justify-content: space-between;
-  width: 200px;
-}
-
-.items-checkbox,
-.items-radiobox {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  align-items: center;
-}
-button {
-  padding: 0.5rem 1rem;
-  border: none;
-  background-color: #f1f1f1;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #e1e1e1;
-}
 input {
   width: 400px;
   padding: 10px;
@@ -170,25 +122,32 @@ input[type='radio'] {
 input:hover {
   border: 1px solid black;
 }
-.resultado {
-  background-color: #3d3d3d;
-  border-radius: 20px;
-  height: 500px;
-  margin-left: 30px;
-  margin-right: 30px;
-  margin-bottom: 20px;
-  margin-top: 30px;
-  text-align: left;
-
-}
 .biografia {
     width: 400px;
     display: flex;
     justify-content: space-between;
 }
 
-.resultado .row {
-    padding: 30px;
+form{
+  background-color: #3d3d3d;
+  border-radius: 20px;
+  height: 100%;
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-bottom: 20px;
+  margin-top: 30px;
+  text-align: left;
 }
 
+.row {
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  width: 500px;
+}
+
+#botao {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 </style>

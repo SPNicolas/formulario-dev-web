@@ -28,7 +28,7 @@
     cadastro.value = dados
     botao.value = true
   }
-  
+
   function voltar(){
     botao.value = false
   }
@@ -43,5 +43,5 @@
 </template>
 
 <style scoped>
-
+  
 </style>
