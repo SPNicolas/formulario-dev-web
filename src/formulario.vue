@@ -6,16 +6,22 @@ const cadastro = reactive({
   email: '',
   senha: '',
   confirmarSenha: '',
-  medida: '',
-  estado: [],
+  data: '',
+  endereco: '',
+  cidade: '',
+  hobbies: '',
+  linguagens: '',
+  estadoSelecionado: '',
 });
+
+const estados = reactive([
+"AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"
+])
 
 const mostrarResultado = ref(false);
 
 
-function buscarNome(nome) {
-  return estados.find((estado) => estado.nome === nome).nome;
-}
+
 </script>
 
 <template>
@@ -30,7 +36,7 @@ function buscarNome(nome) {
     </div>
     <div class="row">
       <label for="">Digite seu email:</label>
-      <input type="email" step="0.01" v-model="cadastro.email" />
+      <input type="email" v-model="cadastro.email" />
     </div>
     <div class="row">
       <label for="">Senha:</label>
@@ -40,49 +46,65 @@ function buscarNome(nome) {
       <label for="">Confirme sua senha:</label>
       <input type="password" v-model="cadastro.confirmarSenha" />
     </div>
+    <div class="row">
+      <label for="">Data de nascimento</label>
+      <input type="date" v-model="cadastro.data">
+    </div>
+    <div class="row">
+      <label for="">Seu endereço:</label>
+      <input type="text" v-model="cadastro.endereco" />
+    </div>
+    <div class="row">
+      <label for="">Sua cidade:</label>
+      <input type="text" v-model="cadastro.cidade" />
+    </div>
+    <div class="estado">
+      <label for="">Estado:</label>
+      <select name="" id="" v-model="cadastro.estadoSelecionado">
+        <option v-for="(estado, index) in estados" :key="index" value="">{{ estado }}</option>
+      </select>
+    </div>
+    <div class="row">
+      <label for="">Hobbies:</label>
+      <input type="radio" value="Brincar" v-model="cadastro.hobbies"/> Brincar
+      <input type="radio" value="Ler" v-model="cadastro.hobbies"/> Ler
+      <input type="radio" value="Treinar" v-model="cadastro.hobbies"/> Treinar
+      <input type="radio" value="Jogar videogame" v-model="cadastro.hobbies"/> Jogar videogame
+      <input type="radio" value="Escutar músicas" v-model="cadastro.hobbies"/> Escutar músicas
+      <input type="radio" value="Jogar futebol" v-model="cadastro.hobbies"/> Jogar futebol
+    </div>
+    <div class="row">
+      <label for="">Linguagens:</label>
+      <input type="radio" value="Python" v-model="cadastro.linguagens"/> Python
+      <input type="radio" value="JavaScript" v-model="cadastro.linguagens"/> JavaScript
+      <input type="radio" value="PHP" v-model="cadastro.linguagens"/> PHP
+      <input type="radio" value="CSS" v-model="cadastro.linguagens"/> CSS
+    </div>
 
-    <fieldset>
-      <legend>Unidade de medida</legend>
-      <div class="items-radiobox">
-        <input type="radio" value="unidade" v-model="cadastro.medida" /> Unidades
-        <input type="radio" value="peso" v-model="cadastro.medida" /> Peso
-      </div>
-    </fieldset>
-    <fieldset>
-    <div>
 
-    
-      </div>
-    </fieldset>
     <button @click="mostrarResultado = !mostrarResultado">Mostrar</button>
   </div>
 </div>
 <div v-if="mostrarResultado" class="resultado">
+  <div class="row">
   <h2>Dados do cadastro</h2>
   <p>Nome: {{ cadastro.nome }}</p>
   <p>Email: {{ cadastro.email }}</p>
   <p>Senha: {{ cadastro.senha }}</p>
-  <p>Medida: {{ cadastro.medida }}</p> 
+  <p>confirmar senha: {{ cadastro.confirmarSenha }}</p>
+  <p>Data de nascimento: {{ cadastro.data }}</p>
+  <p>Seu endereco: {{ cadastro.endereco }}</p>
+  <p>Sua cidade: {{ cadastro.cidade }}</p>
+  <p>Seu estado: {{ cadastro.estadoSelecionado }}</p>
+  <p>Hobbies: {{ cadastro.hobbies }}</p>
+  <p>Linguagens: {{ cadastro.linguagens }}</p>
+  </div> 
 </div>
 
   
 </template>
-<div class="container">
-
-  </div>
-
-
-
-
 <style scoped>
-.altera-titulo {
-  background-color: #98e0aa;
-  margin: 1rem 2rem;
-  border-radius: 20px;
-  padding: .75rem;
-  display: flex;
-  gap: 1rem
-}
+
 
 .container {
   display: flex;
@@ -92,10 +114,9 @@ function buscarNome(nome) {
   padding: 0 2rem;
 }
 
-.formulario,
-.resultado {
-  width: 45vw;
-  min-height: 70vh;
+.formulario {
+  width: 100%;
+  min-height: 600px;
   border-radius: 20px;
   padding: 20px;
 }
@@ -111,6 +132,12 @@ function buscarNome(nome) {
   justify-content: space-between;
 }
 
+.formulario .estado {
+  display: flex;
+  justify-content: space-between;
+  width: 200px;
+}
+
 .items-checkbox,
 .items-radiobox {
   display: grid;
@@ -120,7 +147,14 @@ function buscarNome(nome) {
 
 .resultado {
   background-color: #98e0aa;
+  border-radius: 20px;
+  height: 500px;
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-bottom: 20px;
+  margin-top: 30px;
 }
+
 
 button {
   padding: 0.5rem 1rem;
