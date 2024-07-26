@@ -6,7 +6,8 @@
   import FormsComp from './components/FormsComp.vue'
   import ResultadoComp from './components/ResultadoComp.vue'
 
-  const cadastro = ref({
+  const cadastro = ref(
+    {
     nome: '',
     email: '',
     senha: '',
@@ -18,13 +19,16 @@
     linguagens: '',
     estadoSelecionado: '',
     biografia: '',
-  });
+    }
+  );
 
   const botao = ref(false)
+
   function enviar(dados) {
     cadastro.value = dados
     botao.value = true
   }
+  
   function voltar(){
     botao.value = false
   }
@@ -33,8 +37,8 @@
 
 <template>
 
-  <FormsComp v-if="!button" @enviar = "enviar"></FormsComp>
-  <ResultadoComp v-if="botao" :dados-perfil='cadastro' @voltar="voltar()"></ResultadoComp>
+  <FormsComp v-if="!botao" @enviar = "enviar"></FormsComp>
+  <ResultadoComp v-if="botao" :dados-perfil="cadastro" @voltar="voltar()"></ResultadoComp>
 
 </template>
 
